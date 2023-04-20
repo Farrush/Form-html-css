@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Formulário</title>
+</head>
+<body>
+    <!-- Action -> ação quando faz submit, se omitido vai para a própria página -->
+    <!-- Target -> onde mostrar a response do formulário -->
+    <form class="form" action="" target="_self" method="get">
+        <h1>Formulário Legal</h1>
+        <fieldset>
+
+            <legend>Dados Pessoais</legend>
+            <div class="form-group">
+                <!-- Label For == Input Id -->
+                <!-- input Name é o nome do campo que aparece na url -->
+                <label for="nome">Nome</label>
+                <input name="nome" id="nome" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="cep">Cep</label>
+                <input type="text" id="cep" name="cep"/>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Seu número de celular:</label>
+                <input type="tel" id="telefone" name="telefone" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="DDD 00000-0000">
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <label for="pet">Pet:</label>
+            <select id="pet" name="pet" size="1">
+                <option value="gato">Gato</option>
+                <option value="cachorro" selected>Cachorro</option>
+                <option value="passaro">Pássaro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="navegador">Navegador preferido</label>
+            <input type="text" list="navegador" name="navegador" input="navegador"/>
+            <datalist id="navegador">
+                <option value="Opera">
+                <option value="Chrome">
+                <option value="OperaGX">
+                <option value="Firefox">
+            </datalist>
+        </div>
+        <fieldset>
+            <legend>Linguagem de programação preferida:</legend>
+            <div class="form-group">
+                <div class="radio-item">
+                    <input id="js" type="radio" name="ling_principal" value="Javascript"/>
+                    <label for="js">Javascript</label>
+                </div>
+                <div class="radio-item">
+                    <input id="java" type="radio" name="ling_principal" value="Java"/>
+                    <label for="java">Java</label>
+                </div>
+                <div class="radio-item">
+                    <input id="c" type="radio" name="ling_principal" value="c"/>
+                    <label for="c">C</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="file-group">
+            <label for="cv">Currículo</label>
+            <input type="file" id="cv" name="curriculo"/>
+        </div>
+
+        <!-- input Hidden é usado para enviar um dado pelo formulário que não é controlado pelo usuário -->
+        <input type="hidden" id="data" name="data" value="20/04/2023">
+
+   
+            <input id="submit" type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
