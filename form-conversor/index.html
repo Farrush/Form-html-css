@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Formulário</title>
+</head>
+<body>
+
+    <form class="form" action="" target="_self" method="post">
+        <h1>Conversor de Imagem para base64</h1>
+
+        <div class="file-group">
+            <label for="img">Currículo</label>
+            <input type="file" id="img" name="img"/>
+        </div>
+
+ 
+            <input id="submit" onclick="converter()" type="submit" value="Submit">
+
+            <textarea id="code64"></textarea>
+    </form>
+    <img src="" id="imagem"/>
+
+    <script>
+        const textarea = document.querySelector('#code64')
+        const form = document.querySelector('.form')
+        const imagem = document.querySelector('#imagem')
+        //Impede o submit de limpar a página
+        form.addEventListener('submit', (event)=>{event.preventDefault()})
+        function converter() {
+            var input = document.getElementById("img");
+            // Arquivo selecionado
+            var file = input.files[0];
+            // FileReader que irá ler e converter a imagem
+            var reader = new FileReader();
+
+            reader.onload = function() {
+                var base64 = reader.result;
+                //Exibir o código em um <textarea>
+                textarea.innerHTML = base64
+
+                //Exibir a imagem em uma tag <img>
+                imagem.src=base64
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+    </script>
+</body>
+</html>
